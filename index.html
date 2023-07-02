@@ -6,9 +6,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #34495e;
+            color: #fff;
+            font-family: sans-serif;
+        }
+
+        .game{
+            width: 600px;
+            margin: 50px auto;
+            background-color: #2c3e50;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .score-board{
+            text-align: center;
+            border: 3px solid #fff;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+
+        .badge{
+            background-color: #fff;
+            color: #34495e;
+            padding: 5px 10px;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+
+        .result{
+            text-align: center;
+            border: 3px solid #fff;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+
+        .choices{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .choice{
+            cursor: pointer;
+            border: 3px solid #fff;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .choice:hover{
+            background-color: #fff;
+            color: #2c3e50;
+        }
+
+        .choice img{
+            width: 150px;
+        }
+
+        #action-message{
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .btn{
+            background-color: #fff;
+            color: #2c3e50;
+            padding: 10px 20px;
+            border: 0;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn:hover{
+            background-color: #2c3e50;
+            color: #fff;
+        }
+
+        .btn:focus{
+            outline: none;
+        }
+
+        .btn:active{
+            transform: scale(0.98);
+        }
+
+        /* style user-label and computer-label */
+        #user-label, #computer-label{
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        /* style user-score and computer-score */
+        #user-score, #computer-score{
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+    </style>
 </head>
 <body>
+    <div class="game">
+        <div class="score-board">
+            <div id="user-label" class="badge">user</div>
+            <div id="computer-label" class="badge">comp</div>
+            <span id="user-score">0</span>:<span id="computer-score">0</span>
+        </div>
 
+        <div class="result">
+            <p>Paper covers rock. You win!</p>
+        </div>
+
+        <div class="choices">
+            <div class="choice" id="r" value="rock">
+                <img src="./images/rock.png" alt="">
+            </div>
+            <div class="choice" id="p" value="paper">
+                <img src="../images/paper.png" alt="">
+            </div>
+            <div class="choice" id="s" value="scisors">
+                <img src="./images/s.png" alt="">
+            </div>
+        </div>
+
+        <p id="action-message">Make your move</p>
 
     <script src="./script.js"> </script>
     

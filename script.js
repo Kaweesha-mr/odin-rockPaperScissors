@@ -41,14 +41,45 @@ function getComputerChoice(){
     return array[randomIndex];  
 }
 
+
+
 function game(){
+        document.querySelectorAll("div.choice").forEach((choice) => {
+            choice.addEventListener("click", () => {
 
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Enter your choice:");
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection.toLowerCase(), computerSelection));
-     }
+                //get the value of div tag which has choice class
+                const playerSelection = choice.getAttribute("value");
+                const computerSelection = getComputerChoice();
+                const result = playRound(playerSelection.toLowerCase(), computerSelection);
 
-}
+                
+                document.getElementsByClassName("result")[0].innerHTML = result;
+
+                
+                if(result.includes("won")){
+                    document.getElementById("user-score").innerHTML = parseInt(document.getElementById("user-score").innerHTML) + 1;
+                }
+                
+                else{
+                    document.getElementById("computer-score").innerHTML = parseInt(document.getElementById("computer-score").innerHTML) + 1;
+                }
+                
+                
+                if(parseInt(document.getElementById("user-score").innerHTML) == 5){
+
+                    document.getElementsByClassName("result")[0].innerHTML = "You won the game";
+                    document.getElementById("user-score").innerHTML = 0;
+                    document.getElementById("computer-score").innerHTML = 0;
+                }
+
+                else if(parseInt(document.getElementById("computer-score").innerHTML) == 5){
+                    document.getElementsByClassName("result")[0].innerHTML = "You lost the game";
+                    document.getElementById("user-score").innerHTML = 0;
+                    document.getElementById("computer-score").innerHTML = 0;
+                }
+            
+         });
+
+})};
 
 game();
